@@ -20,7 +20,7 @@ interface Props {
 }
 
 const drawerWidth = 240;
-const navItems = ['Strona główna', 'Wydatki', 'Podsumowanie'];
+const navItems = ['Expenses', 'Summary'];
 
 export default function DrawerAppBar(props: Props) {
   const { window } = props;
@@ -79,7 +79,7 @@ export default function DrawerAppBar(props: Props) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
