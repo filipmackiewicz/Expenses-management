@@ -1,5 +1,10 @@
+import ExpensesForm from './expensesForm/ExpensesForm';
 import { CustomDivWrapper } from './ExpensesStyles';
 
 export const Expenses = () => {
-  return <CustomDivWrapper>Expenses</CustomDivWrapper>;
+  return (
+    <CustomDivWrapper>
+      <ExpensesForm />
+    </CustomDivWrapper>
+  );
 };
