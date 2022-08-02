@@ -1,12 +1,18 @@
+import { ExpensesChart } from './expensesChart/ExpensesChart';
 import ExpensesForm from './expensesForm/ExpensesForm';
-import { CustomDivWrapper } from './ExpensesStyles';
+import { CustomDiv, CustomDivWrapper } from './ExpensesStyles';
 import ExpensesTable from './expensesTable/ExpensesTable';
 
 export const Expenses = () => {
   return (
     <CustomDivWrapper>
-      <ExpensesForm />
-      <ExpensesTable />
+      <CustomDiv>
+        <ExpensesForm />
+        <ExpensesTable />
+      </CustomDiv>
+      <div>
+        <ExpensesChart />
+      </div>
     </CustomDivWrapper>
   );
 };

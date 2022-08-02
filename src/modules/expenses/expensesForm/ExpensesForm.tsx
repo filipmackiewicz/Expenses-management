@@ -88,23 +88,45 @@ const Label = styled(({ children, className }: { children?: React.ReactNode; cla
 `;
 
 export default function ExpensesForm() {
+  const [state, setState] = React.useState({
+    name: '',
+    price: null,
+    date: null,
+    select: null,
+  });
+
+  const handleOnChange = (e: any) => {
+    const value = e.target.value;
+    setState({
+      ...state,
+      [e.target.name]: value,
+    });
+    console.log(value);
+  };
+
+  const handleOnSubmit = (e: any) => {
+    e.preventDefault();
+    handleOnChange(e);
+    console.log(state);
+  };
+
   return (
-    <CustomForm>
+    <CustomForm onSubmit={handleOnSubmit}>
       <FormControlUnstyled defaultValue='' required>
         <Label>Nazwa</Label>
-        <Input type='text' placeholder='Wprowadz nazwę produktu/produktów' />
+        <Input name='name' type='text' onChange={handleOnChange} placeholder='Wprowadz nazwę produktu/produktów' />
       </FormControlUnstyled>
       <FormControlUnstyled defaultValue='' required>
         <Label>Cena</Label>
-        <Input type='number' placeholder='Podaj cenę produktu/produktów' />
+        <Input name='price' onChange={handleOnChange} type='number' placeholder='Podaj cenę produktu/produktów' />
       </FormControlUnstyled>
       <FormControlUnstyled defaultValue='' required>
         <Label>Data zakupu</Label>
-        <Input type='date' placeholder='Podaj cenę produktu/produktów' />
+        <Input name='date' onChange={handleOnChange} type='date' placeholder='Podaj cenę produktu/produktów' />
       </FormControlUnstyled>
       <SelectWrapper>
         <label htmlFor='category'>Wybierz kategorie zakupu</label>
-        <select id='category'>
+        <select name='select' id='category' onChange={handleOnChange}>
           <option value='zwynosc'>Żywność</option>
           <option value='chemia'>Chemia</option>
           <option value='rozrywka'>Rozrywka</option>
